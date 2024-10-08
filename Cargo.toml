@@ -1,0 +1,29 @@
+[package]
+name = "macos-errno"
+version = "1.0.0"
+authors = ["John Millikin <john@john-millikin.com>"]
+edition = "2018"
+description = "macOS error numbers"
+readme = "README.md"
+repository = "https://github.com/jmillikin/rust-macos-errno"
+license = "0BSD"
+
+categories = [
+	"no-std",
+	"os::macos-apis",
+]
+
+include = [
+	"/LICENSE.txt",
+	"/macos-errno/macos-errno.rs",
+]
+
+[dependencies]
+posix-errno = { version = "1.0.1", optional = true }
+
+[features]
+default = ["posix-traits"]
+posix-traits = ["dep:posix-errno"]
+
+[lib]
+path = "macos-errno/macos-errno.rs"
